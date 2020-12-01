@@ -1,10 +1,8 @@
 package main
 
 import (
-	"bufio"
+	. "../lib"
 	"fmt"
-	"io/ioutil"
-	"os"
 	"strconv"
 )
 
@@ -30,27 +28,6 @@ func main() {
 		}
 	}
 }
-func ReadFile(day int) string {
-	filename := fmt.Sprintf("Day%02d/%02d.in", day, day)
-	bytes, err := ioutil.ReadFile(filename)
-	if err != nil {
-		panic(err)
-	}
-	return string(bytes)
-}
-
-func ReadFileByLine(day int, fn func(string)) {
-	filename := fmt.Sprintf("Day%02d/%02d.in", day, day)
-	f, err := os.Open(filename)
-	if err != nil {
-		panic(err)
-	}
-	scanner := bufio.NewScanner(f)
-	for scanner.Scan() {
-		fn(scanner.Text())
-	}
-}
-
 func WriteSolutionPart1(format string, values ...interface{}) {
 	answer := "Part 1: " + format + "\n"
 	fmt.Printf(answer, values...)
