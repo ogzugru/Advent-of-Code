@@ -7,7 +7,9 @@ import (
 )
 
 func main() {
+
 	m := map[int64]struct{}{}
+
 	readFunction := func(line string) {
 		n, err := strconv.ParseInt(line, 10, 64)
 		if err != nil {
@@ -15,9 +17,11 @@ func main() {
 		}
 		m[n] = struct{}{}
 	}
+
 	ReadFileByLine(1, readFunction)
 
 	p1, _ := seek(m, 2020, -1)
+
 	WriteSolutionPart1("%d", p1)
 
 	for k, _ := range m {
