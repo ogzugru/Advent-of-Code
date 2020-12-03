@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+// The file io.go is created for handling the lined file inputs.
+
 func ReadFile(day int) string {
 	filename := fmt.Sprintf("Day%02d/%02d.in", day, day)
 	bytes, err := ioutil.ReadFile(filename)
