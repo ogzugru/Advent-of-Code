@@ -29,3 +29,33 @@ func ReadFileByLine(day int, fn func(string)) {
 		fn(scanner.Text())
 	}
 }
+func Remove(s []string, in string) []string {
+	for i, v := range s {
+		if v == in {
+			s = append(s[:i], s[i+1:]...)
+			break
+		}
+	}
+	return s
+}
+func Contains(s []string, e string) bool {
+	for _, a := range s {
+		if a == e {
+			return true
+		}
+	}
+	return false
+}
+func FindMinAndMax(a []int) (min int, max int) {
+	min = a[0]
+	max = a[0]
+	for _, value := range a {
+		if value < min {
+			min = value
+		}
+		if value > max {
+			max = value
+		}
+	}
+	return min, max
+}
